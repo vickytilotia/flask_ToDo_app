@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
-
 from datetime import datetime
 
 
@@ -10,6 +9,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] ="sqlite:///flask_todo.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] =False
 db = SQLAlchemy(app)
 
+
+# database class 
 class ToDo(db.Model):
     sno = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(200), nullable = False)
@@ -19,6 +20,7 @@ class ToDo(db.Model):
     def __repr__(self) -> str:
         return f"{self.sno} -{self.title}"
 
+# homepage
 @app.route("/", methods =[ 'GET', 'POST'])
 def hello_world():
     if request.method == "POST":
@@ -33,11 +35,22 @@ def hello_world():
     return render_template('index.html', allTodo=allTodo)
     # return "<p>Hello, World!</p>"
 
-@app.route('/update')
-def update():
-    allTodo =ToDo.query.all()
-    print(allTodo)
-    return 'Index Page'
+# update page 
+@app.route('/update/<int:sno>' , methods =[ 'GET', 'POST'])
+def update(sno):
+    if request.method == "POST":
+        title = request.form['title']
+        desc = request.form['desc']
+
+        todo =ToDo.query.filter_by(sno=sno).first()
+        todo.title =  title
+        todo.desc = desc
+        db.session.add(todo)
+        db.session.commit()
+        return redirect("/")
+
+    todo =ToDo.query.filter_by(sno=sno).first()
+    return render_template('update.html', todo = todo)
 
 @app.route('/delete/<int:sno>')
 def delete(sno):
