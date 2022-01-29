@@ -22,7 +22,7 @@ class ToDo(db.Model):
 
 # homepage
 @app.route("/", methods =[ 'GET', 'POST'])
-def hello_world():
+def app():
     if request.method == "POST":
         title = request.form['title']
         desc = request.form['desc']
