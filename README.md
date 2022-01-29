@@ -1,4 +1,4 @@
-This is a simple flask ToDo app deployed on Heroku.
+This is a simple flask ToDo app that later deployed on Heroku.
 
 
 
