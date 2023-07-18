@@ -1,24 +1,37 @@
-This is a simple flask ToDo app that later deployed on Heroku.
+# Flask ToDo App
+
+This is a Flask ToDo app that was later deployed on Heroku.
 
 
 
-Useful commands for Heroku deployment:
+```bash
+Key Features
+1. Create, Read, Update, or Delete an item in the ToDo list
+2. Used SQLAlchemy, Flask
+3. Deployed on cloud service
+```
 
-$ python3 -m pip freeze > requirements.txt
+## How to Install this app
 
-$ git init
+```python
+#create a virtual environment
+python3 -m venv env
 
-$ git add .gitignore app.py requirements.txt
+#install required modules
+pip install -r requirements.txt
 
-$ git commit -m "Initialize Git repository"
+# Or install Flask and sqlalchemy
+pip install flask Flask-SQLAlchemy
 
+```
 
-$ heroku login
+## Contributing
 
-$ git add .
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
 
-$ git commit -m "Add Heroku deployment files"
+Please make sure to update tests as appropriate.
 
-$ git push heroku master
+## SnapShot
 
 ![image](https://user-images.githubusercontent.com/32337899/151654243-120ae357-efaa-4f6a-8b61-5f8e95ff5d53.png)
