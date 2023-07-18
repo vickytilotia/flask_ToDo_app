@@ -33,7 +33,7 @@ def app_home():
 
     allTodo =ToDo.query.all()
     return render_template('index.html', allTodo=allTodo)
-    # return "<p>Hello, World!</p>"
+    
 
 # update page 
 @app.route('/update/<int:sno>' , methods =[ 'GET', 'POST'])
@@ -52,6 +52,7 @@ def update(sno):
     todo =ToDo.query.filter_by(sno=sno).first()
     return render_template('update.html', todo = todo)
 
+# delete todo item
 @app.route('/delete/<int:sno>')
 def delete(sno):
     todo =ToDo.query.filter_by(sno=sno).first()
@@ -60,6 +61,6 @@ def delete(sno):
     return redirect("/")
 
 
-# This is not required for cloud deployment
+# Use this to run the app on localhost
 # if __name__ =="__main__":
 #     app.run(debug=True)
