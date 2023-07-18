@@ -2,7 +2,9 @@
 
 This is a Flask ToDo app that was later deployed on Heroku.
 
+## Use ToDo App
 
+The app is deployed here [ToDo App](https://flask-todo-app-ehrl.onrender.com/), click to open the web app.
 
 ```bash
 Key Features
