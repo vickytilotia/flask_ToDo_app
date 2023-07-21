@@ -1,6 +1,6 @@
 # Flask ToDo App
 
-This is a Flask ToDo app that was later deployed on Heroku.
+This Flask ToDo app  has essential task management functionalities, allowing users to create, read, update, and delete tasks. It utilizes SQLAlchemy and Flask for smooth database interactions and is later deployed on a cloud service.
 
 ## Use ToDo App
 
